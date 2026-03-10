@@ -1,0 +1,489 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="utf-8">
+    <title>欢迎光临</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* 星空背景 */
+        body {
+            padding: 20px;
+            background: url("https://picsum.photos/id/1002/1920/1080") no-repeat center center fixed;
+            background-size: cover;
+            font-family: Arial, sans-serif;
+            color: #fff;
+        }
+
+        /* 顶部公告栏 */
+        .top-notice {
+            background: rgba(0, 0, 0, 0.2);
+            padding: 15px 20px;
+            border-radius: 10px;
+            text-align: center;
+            line-height: 1.8;
+            margin-bottom: 25px;
+            font-size: 15px;
+            color: #fff;
+        }
+
+        /* 你的原有页面样式 */
+        .bg-img {
+            width: 100%;
+            height: 150px;
+            margin-bottom: 20px;
+        }
+        header {
+            text-align: center;
+            font-size: 20px;
+            margin-bottom: 30px;
+            font-weight: bold;
+        }
+        main {
+            text-align: center;
+            line-height: 2;
+            margin-bottom: 40px;
+        }
+        footer {
+            text-align: center;
+            margin-top: 50px;
+            font-size: 14px;
+            color: #eee;
+        }
+
+        /* 卡片样式（空的，你自己插内容） */
+        .card {
+            width: 350px;
+            border: 2px solid #000;
+            background: rgba(255, 255, 255, 0.2);
+            border-radius: 12px;
+            overflow: hidden;
+            margin: 10px auto;
+        }
+        .card-title {
+            padding: 15px;
+            font-size: 18px;
+            font-weight: bold;
+            text-align: center;
+            background: rgba(255,255,255,0.3);
+        }
+        .card-image img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+        .card-content {
+            padding: 15px;
+            font-size: 14px;
+            line-height: 1.5;
+            color: #000;
+        }
+
+        /* 搜索框 */
+        .search-wrap {
+            max-width: 350px;
+            margin: 30px auto;
+            position: relative;
+        }
+        .search-input {
+            width: 100%;
+            padding: 12px 16px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            font-size: 15px;
+            outline: none;
+            background: #fff;
+        }
+        .result-box {
+            position: absolute;
+            top: 50px;
+            left: 0;
+            right: 0;
+            background: #fff;
+            border: 1px solid #eee;
+            border-radius: 8px;
+            max-height: 280px;
+            overflow-y: auto;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.15);
+            z-index: 9999;
+            display: none;
+        }
+        .result-item {
+            padding: 11px 15px;
+            cursor: pointer;
+            border-bottom: 1px solid #f6f6f6;
+            color: #000;
+        }
+        .result-item:hover {
+            background: #f5f7fa;
+        }
+        .card-highlight {
+            border: 3px solid #ff4444 !important;
+        }
+
+        /* 分页 */
+        .pagination {
+            text-align: center;
+            margin: 30px 0;
+        }
+        .pagination button,
+        .pagination input {
+            padding: 8px 12px;
+            margin: 0 4px;
+            border-radius: 6px;
+            border: 1px solid #ccc;
+        }
+        .pagination button {
+            cursor: pointer;
+            background: #fff;
+        }
+        .page-input {
+            width: 60px;
+            text-align: center;
+        }
+
+    </style>
+</head>
+
+<body>
+
+    <!-- 顶部公告栏 20%透明黑 -->
+    <div class="top-notice">
+        推荐打包<br>
+        9.9元 自选游戏  共15个游戏位<br>
+        <三元占三个游戏位><br>
+        <两元占两个游戏位><br>
+        <一元占一个游戏位><br>
+        <br>
+        5 元 任意游戏自选4个<br>
+        <br>
+        游戏位可留 下次更新游戏库再选<br>
+        （多买多优惠价格可自定）
+    </div>
+
+    <div class="bg-img"></div>
+    <header>祝您起飞愉快</header>
+    <main>
+        <h1>钢蛋资源站</h1>
+        <p>铁锭夹钢蛋制作 更多资源请</p>
+        <p>➕群群🐧971846317</p>
+        <p>➕群群🐧593173937</p>
+        <p>老机长永不坠机！</p>
+    </main>
+
+    <!-- 搜索框 -->
+    <div class="search-wrap">
+        <input class="search-input" id="kw" placeholder="搜索关键词" oninput="searchCard()">
+        <div class="result-box" id="resultBox"></div>
+    </div>
+
+    <!-- 卡片容器 → 你自己在这里插卡片！！！ -->
+    <div id="cardContainer">
+
+<!-- ========== 置顶卡片 1 ========== -->
+<div class="card sticky-card">
+  <div class="card-title">主人推荐的游戏</div>
+  <div class="card-image">
+    <a href="你要跳转的网页地址.html" target="_blank">
+      <img src="1000165561.jpg" alt="图片">
+    </a>
+  </div>
+  <div class="card-content">点击图片进入</div>
+</div>
+
+<!-- ========== 置顶卡片 2 ========== -->
+<div class="card sticky-card">
+  <div class="card-title">合集打包</div>
+  <div class="card-image">
+    <a href="你要跳转的网页地址.html" target="_blank">
+      <img src="Screenshot_2026-02-28-13-43-23-852_com.tencent.mobileqq_1772257476860edit.jpg" alt="图片">
+    </a>
+  </div>
+  <div class="card-content">已出的合集打包 价格优惠</div>
+</div>
+
+<!-- 普通卡片（可无限复制粘贴） -->
+<div class="card">
+    <div class="card-title">
+        【特工17v0.26.10作弊 夯爆（无码）三元】
+    </div>
+
+    <div class="card-image">
+        <a href="https://aaa9.rth1.xyz/" target="_blank">
+            <img src="Screenshot_2026-03-02-10-14-14-959_com.youka.cc_1772417670411edit.jpg" alt="图片">
+        </a>
+    </div>
+
+    <div class="card-content">
+        【互动类3Dslg  动态cg➕音效 占存3.2gb 神作不用多说】
+    </div>
+</div>
+
+<!-- 普通卡片（可无限复制粘贴） -->
+<div class="card">
+    <div class="card-title">
+        【夏之终焉  顶级（有码）  二元】
+    </div>
+
+    <div class="card-image">
+        <a href="https://aaa8.rth1.xyz/" target="_blank">
+            <img src="Screenshot_2026-03-01-17-24-15-399_com.kr.game14.jpg" alt="图片">
+        </a>
+    </div>
+
+    <div class="card-content">
+        【互动型slg玩法  全程配音 多种结局（建议好好过剧情 否则无法达成最终结局）】
+    </div>
+</div>
+
+<!-- 普通卡片（可无限复制粘贴） -->
+<div class="card">
+    <div class="card-title">
+        【被傻小子绿了 夯爆（有码）一元】
+    </div>
+
+    <div class="card-image">
+        <a href="https://aaa6.rth1.xyz/" target="_blank">
+            <img src="Screenshot_2026-03-01-14-12-17-082_com.hangovercatpurrroduction.ntrdbyclumsiness_1772350016081edit.jpg" alt="图片">
+        </a>
+    </div>
+
+    <div class="card-content">
+        【slg类 双视角 动态cg cg配音 占存800mb】
+    </div>
+</div>
+
+<!-- 普通卡片（可无限复制粘贴） -->
+<div class="card">
+    <div class="card-title">
+        【纳迪亚之宝  夯爆  二元】
+    </div>
+
+    <div class="card-image">
+        <a href="https://aaa7.rth1.xyz/" target="_blank">
+            <img src="Screenshot_2026-02-28-21-09-59-166_com.acgg.ndy.jpg" alt="图片">
+        </a>
+    </div>
+
+    <div class="card-content">
+        【3D互动RPG 画风新颖 动态cg 加配音 占存2GB】
+    </div>
+</div>
+
+ <!-- 普通卡片（可无限复制粘贴） -->
+<div class="card">
+    <div class="card-title">
+        【邂逅书店  顶尖  一元】
+［人上人 一元］
+    </div>
+
+    <div class="card-image">
+        <a href="https://aaa1.rth1.xyz/" target="_blank">
+            <img src="Screenshot_2026-02-28-18-16-41-729_com.NekoGoto.SerendipityBookshop.jpg" alt="图片">
+        </a>
+    </div>
+
+    <div class="card-content">
+        【互动型slg  占存648mb 可以触摸互动 代入感强满足变态心理 有金钱  道具
+媚药系统可以使你更持久】
+    </div>
+</div>      
+
+<!-- 普通卡片（可无限复制粘贴） -->
+<div class="card">
+    <div class="card-title">
+        【和妹妹的奇妙生活  人上人 一元】
+    </div>
+
+    <div class="card-image">
+        <a href="https://aaa2.rth1.xyz/" target="_blank">
+            <img src="Screenshot_2026-02-28-18-40-06-047_sister.com.jpg" alt="图片">
+        </a>
+    </div>
+
+    <div class="card-content">
+        【纯剧情游戏 但画风别具一格 能玩 体验感一般  占存695mb】
+    </div>
+</div>
+
+<!-- 普通卡片（可无限复制粘贴） -->
+<div class="card">
+    <div class="card-title">
+        【女仆来我家 夯爆 一元】
+    </div>
+
+    <div class="card-image">
+        <a href="https://aaa3.rth1.xyz/" target="_blank">
+            <img src="Screenshot_2026-02-28-19-19-08-780_com.nvpu.game.jpg" alt="图片">
+        </a>
+    </div>
+
+    <div class="card-content">
+        【海豹社游戏 质量不用多说 全程配音加无码cg  占存710mb】
+    </div>
+</div>
+
+<!-- 普通卡片（可无限复制粘贴） -->
+<div class="card">
+    <div class="card-title">
+        【忘却的艾迪西乌斯 顶尖（有码）二元档】
+    </div>
+
+    <div class="card-image">
+        <a href="https://aaa4.rth1.xyz/" target="_blank">
+            <img src="Screenshot_2026-02-28-21-09-30-053_com.wangque.game.jpg" alt="图片">
+        </a>
+    </div>
+
+    <div class="card-content">
+        动漫风slg 全程配音 动态cg
+    </div>
+</div>
+
+<!-- 普通卡片（可无限复制粘贴） -->
+<div class="card">
+    <div class="card-title">
+        【魔法少女泪田（330251）顶尖（有码）一元】
+    </div>
+
+    <div class="card-image">
+        <a href="https://aaa5.rth1.xyz/" target="_blank">
+            <img src="zzz1.jpg" alt="图片">
+        </a>
+    </div>
+
+    <div class="card-content">
+        【互动回合制RPG  全程配音  有回想屋 】
+    </div>
+</div>
+
+    </div>
+
+    <!-- 分页 -->
+    <div class="pagination">
+        <button onclick="goPrev()">上一页</button>
+        <span>第 <span id="currentPage">1</span> 页</span>
+        <button onclick="goNext()">下一页</button>
+        <input type="number" class="page-input" id="jumpPage" placeholder="页码">
+        <button onclick="goToPage()">跳转</button>
+    </div>
+
+    <footer>
+        本网站由铁锭夹钢蛋 禁止转载使用。
+    </footer>
+
+<script>
+// ====================== 配置项
+const cardsPerPage = 10;  // 一页10个
+let currentPage = 1;
+let allCards = [];
+
+const container = document.getElementById("cardContainer");
+
+// 自动读取你插入的所有卡片
+function loadCards() {
+    allCards = Array.from(document.querySelectorAll(".card"));
+}
+
+// ====================== 分页
+function renderPage() {
+    const start = (currentPage - 1) * cardsPerPage;
+    const end = start + cardsPerPage;
+
+    allCards.forEach((card, index) => {
+        card.style.display = (index >= start && index < end) ? "block" : "none";
+    });
+
+    document.getElementById("currentPage").innerText = currentPage;
+}
+
+function goPrev() {
+    if (currentPage > 1) {
+        currentPage--;
+        renderPage();
+    }
+}
+function goNext() {
+    const maxPage = Math.ceil(allCards.length / cardsPerPage);
+    if (currentPage < maxPage) {
+        currentPage++;
+        renderPage();
+    }
+}
+function goToPage() {
+    const input = document.getElementById("jumpPage");
+    const num = parseInt(input.value) || 1;
+    const maxPage = Math.ceil(allCards.length / cardsPerPage);
+    if (num >= 1 && num <= maxPage) {
+        currentPage = num;
+        renderPage();
+    }
+    input.value = "";
+}
+
+// ====================== 搜索
+let matchedCards = [];
+let currentHighlightedCard = null;
+
+function searchCard() {
+    const kw = document.getElementById("kw").value.trim();
+    const resultBox = document.getElementById("resultBox");
+    if (!kw) {
+        resultBox.style.display = "none";
+        return;
+    }
+    matchedCards = [];
+    const list = [];
+    allCards.forEach(card => {
+        const t = card.innerText.trim();
+        if (t.includes(kw)) {
+            list.push(t);
+            matchedCards.push(card);
+        }
+    });
+    if (list.length === 0) {
+        resultBox.innerHTML = '<div class="result-item">未找到</div>';
+    } else {
+        let html = "";
+        list.forEach((item, i) => {
+            html += `<div class="result-item" onclick="jumpToCard(${i})">${item}</div>`;
+        });
+        resultBox.innerHTML = html;
+    }
+    resultBox.style.display = "block";
+}
+
+// 跳转并自动切页
+function jumpToCard(index) {
+    const card = matchedCards[index];
+    if (!card) return;
+
+    if (currentHighlightedCard) {
+        currentHighlightedCard.classList.remove("card-highlight");
+    }
+
+    const idx = allCards.indexOf(card);
+    currentPage = Math.floor(idx / cardsPerPage) + 1;
+    renderPage();
+
+    setTimeout(() => {
+        const top = card.getBoundingClientRect().top + window.scrollY - 20;
+        window.scrollTo({ top: top, behavior: "instant" });
+        card.classList.add("card-highlight");
+        currentHighlightedCard = card;
+    }, 50);
+}
+
+// 初始化
+window.onload = function() {
+    loadCards();
+    renderPage();
+};
+</script>
+
+</body>
+</html>
